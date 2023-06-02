@@ -18,7 +18,7 @@ CREATE TABLE IF NOT EXISTS GenreMusician (
 create table if not exists Album (
 	id SERIAL primary key,
 	name VARCHAR(20) not null,
-	relise DATE not null,
+	relise DATE not null constraint wrong_year check (relise > 1889-01-01),
 	description TEXT
 );
 
@@ -39,7 +39,7 @@ create table if not exists Track (
 create table if not exists Collection (
 	id SERIAL primary key,
 	name varchar(40) not null,
-	relise DATE not null,
+	relise DATE not null constraint wrong_year check (relise > 1889-01-01),
 	description text
 );
 
