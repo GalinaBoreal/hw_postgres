@@ -92,7 +92,7 @@ where a.id = ar.album_id
 ;
 
 --Названия сборников, в которых присутствует Beyonce. Вариант 1
-select m.name, c.name from musician m
+select distinct m.name, c.name from musician m
 join albumrecording a on a.musician_id = m.id
 join track t on t.album_id = a.album_id 
 join collectionrecording cr on cr.track_id = t.id
@@ -101,7 +101,7 @@ where m.name = 'Beyonce'
 ;
 
 --Названия сборников, в которых присутствует Beyonce. Вариант 2
-select m."name", c."name" 
+select distinct m."name", c."name" 
 from musician m, albumrecording ar, album a, track t, collectionrecording cr, collection c  
 where m.name = 'Beyonce'
   and a.id = ar.album_id 
@@ -109,23 +109,6 @@ where m.name = 'Beyonce'
   and t.album_id = a.id
   and cr.track_id = t.id
   and c.id = cr.collection_id
-;
-
---Названия сборников, в которых присутствует Beyonce. Вариант 3
-select case when shell.r_num = 1 then shell.name
-  else null
-  end as musician
-  , shell.collection
-from (
-select m.name, c.name as collection
-  , row_number () over (partition by m."name") as r_num
-from musician m
-join albumrecording a on a.musician_id = m.id
-join track t on t.album_id = a.album_id 
-join collectionrecording cr on cr.track_id = t.id
-join collection c on c.id = cr.collection_id 
-where m.name = 'Beyonce'
-) shell 
 ;
 
 --Задание 4
