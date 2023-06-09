@@ -198,3 +198,27 @@ VALUES('Oh my', 200, '331');
 
 INSERT INTO track  (name, t_time, album_id)
 VALUES('My', 200, '331');
+
+INSERT INTO track  (name, t_time, album_id)
+VALUES('my own', 200, '331');
+
+INSERT INTO track  (name, t_time, album_id)
+VALUES('oh my god', 200, '331');
+
+INSERT INTO track  (name, t_time, album_id)
+VALUES('by myself', 200, '331');
+
+INSERT INTO track  (name, t_time, album_id)
+VALUES('bemy self', 200, '331');
+
+INSERT INTO track  (name, t_time, album_id)
+VALUES('myself by', 200, '331');
+
+INSERT INTO track  (name, t_time, album_id)
+VALUES('by myself by', 200, '331');
+
+INSERT INTO track  (name, t_time, album_id)
+VALUES('beemy', 200, '331');
+
+INSERT INTO track  (name, t_time, album_id)
+VALUES('premyne', 200, '331');

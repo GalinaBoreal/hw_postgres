@@ -21,19 +21,7 @@ where (relise between '2018-01-01 00:00:00' and '2020-12-31 23:59:59')
 select name from musician
 where name not like '% %';
 
---Название треков, которые содержат слово «мой» или «my».Вариант 1.
-select name from track
-where name ~~* 'MY'
-  or name ~~* '% MY%'
-  or name ~~* '%MY %'
-  or name ~~* 'MY'
-  or name ~~* 'МОЙ'
-  or name ~~* '% МОЙ%'
-  or name ~~* '%МОЙ %'
-  or name ~~* 'МОЙ'
-;
-
---Название треков, которые содержат слово «мой» или «my».Вариант 2.
+--Название треков, которые содержат слово «мой» или «my».
 select t.name from track t
 where string_to_array (lower(t.name), ' ') && array ['my', 'мой']
 ;
