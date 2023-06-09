@@ -24,20 +24,18 @@ where name not like '% %';
 --Название треков, которые содержат слово «мой» или «my».Вариант 1.
 select name from track
 where name ~~* 'MY'
-or name ~~* '% MY%'
-or name ~~* '%MY %'
-or name ~~* 'MY'
+  or name ~~* '% MY%'
+  or name ~~* '%MY %'
+  or name ~~* 'MY'
+  or name ~~* 'МОЙ'
+  or name ~~* '% МОЙ%'
+  or name ~~* '%МОЙ %'
+  or name ~~* 'МОЙ'
 ;
 
 --Название треков, которые содержат слово «мой» или «my».Вариант 2.
 select t.name from track t
 where string_to_array (lower(t.name), ' ') && array ['my', 'мой']
-;
-
---Название треков, которые содержат слово «мой» или «my».Вариант 3 (не везде рабочий).
-select name from track
-where 1 = 1
-  and regexp_like (name, '(\Wmy\W?|\W?my\W|\Wmy\W|^my$|\Wмой\W?|\W?мой\W|\Wмой\W|^мой$)', 'i')
 ;
 
 --Задание 3
