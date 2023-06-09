@@ -189,3 +189,12 @@ VALUES('More', 193, '332');
 
 INSERT INTO track  (name, t_time, album_id) 
 VALUES('Summer', 267, '331');
+
+INSERT INTO track  (name, t_time, album_id)
+VALUES('Myself', 200, '331');
+
+INSERT INTO track  (name, t_time, album_id)
+VALUES('Oh my', 200, '331');
+
+INSERT INTO track  (name, t_time, album_id)
+VALUES('My', 200, '331');
