@@ -43,7 +43,12 @@ group by g.name
 order by musician desc
 ;
 
---Количество треков, вошедших в альбомы 2019–2020 годов. Вариант 1
+--Количество треков, вошедших в альбомы 2019–2020 годов. Вариант правильный
+select count(t.id) from track as t
+join album a on t.album_id = a.id
+where date_part('year', a.relise) between 2019 and 2020;
+
+--Варианты не очень
 select count(shell.id) as count_track
 from (
 select extract (year from a.relise) as album_year
@@ -54,7 +59,6 @@ where (a.relise between to_date ('2019-01-01 00:00:01', 'YYYY-MM-DD HH24:MI:SS')
 ) shell
 ;
 
---Количество треков, вошедших в альбомы 2019–2020 годов. Вариант 2
 select count(shell.id) as count_track
 from (
 select extract (year from a.relise) as album_year
